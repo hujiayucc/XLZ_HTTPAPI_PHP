@@ -1,4 +1,4 @@
-### 小栗子HTTPAPI SDK For PHP
+## 小栗子HTTPAPI SDK For PHP
 
 首次使用请根据自己框架设置修改**Lib/Config.php**
 
@@ -6,7 +6,7 @@
 
 首次使用请根据自己框架设置修改**Lib/Config.php**
 
-## 文件目录
+### 文件目录
 
 **index.php** 文件中有基础调用案例
 
