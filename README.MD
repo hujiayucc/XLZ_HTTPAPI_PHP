@@ -1,8 +1,3 @@
-<!--
- * @Author: hujiayucc
- * @Date: 2022-07-31 09:15:46
- * @Description: 文件描述
--->
 ### 小栗子HTTPAPI SDK For PHP
 
 首次使用请根据自己框架设置修改**Lib/Config.php**
