@@ -52,7 +52,8 @@ function 事件类型_事件($msg)
     define('事件_框架QQ', $msg->logonqq);
     define('事件_事件群号', $msg->fromgroup->group);
     define('事件_事件QQ', $msg->fromqq->qq);
+    define('事件_消息内容', $msg->msg->text);
+    define('事件_消息类型', $msg->msg);
     define('事件_事件类型', getEventType($msg->msg->type));
-    API::发送好友消息(事件_框架QQ, 2792607647, 事件_事件类型);
+    doAction('event', 事件_框架QQ, 事件_事件群号, 事件_事件QQ, 事件_事件类型, 事件_消息内容);
 }
-//API::发送好友消息($msg->logonqq, 2792607647, file_get_contents("php://input"));
