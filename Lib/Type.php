@@ -49,6 +49,9 @@ const 事件类型_群聊消息 = "groupmsg";
 const 事件类型_事件 = "eventmsg";
 const 事件类型_频道推送数据 = "guildpush";
 
+const 名片类型_好友 = "Friend";
+const 名片类型_群聊 = "Group";
+
 function getEventType(int $type): string
 {
     $array = [
@@ -129,7 +132,7 @@ function getEventType(int $type): string
         204     =>  "登录事件_其他应用登录验证请求",
 
     ];
-    if($array[$type] != "")
+    if ($array[$type] != "")
         return $array[$type];
     else
         return "未知类型事件";
