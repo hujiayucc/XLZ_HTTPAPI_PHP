@@ -26,7 +26,7 @@ function 闪照破解($robot, $group, $toqq, $msg)
 {
     $flash = "[flashPic,hash=";
     if ($toqq != $robot) {
-        if ($group == 703195149 || $group == 437932024 || $group == 936549039) {
+        if ($group == 703195149 || $group == 437932024 || $group == 936549039 || $group == 590201901) {
             if (strpos($msg, $flash) !== false) {
                 $message = "[@" . $toqq . "] 发送了一张闪照\n\n" . str_replace("flashPic", "pic", $msg);
                 API::发送群消息($robot, $group, $message);
