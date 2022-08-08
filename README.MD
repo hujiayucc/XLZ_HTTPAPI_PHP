@@ -27,3 +27,33 @@
 **点击链接加入群聊【xzfg①】：** [XLZ HTTPAPI交流群](https://jq.qq.com/?_wv=1027&k=zO0diIft)
 
 **IDE推荐:** [VSCode](https://code.visualstudio.com/)
+
+## 插件要求
+插件位置存在于 **plugins** 文件夹
+插件的文件名需与文件夹名相同（例：关键词回复/关键词回复.php）
+插件中将功能以 **function** 写为函数调用
+例如:
+```php
+<?php
+//必须引入的文件
+require_once("../Lib/init.php");
+
+function 关键词回复($robot, $toqq, $msg)
+{
+    if ($toqq == 2792607647) {
+        API::发送好友消息($robot,$toqq,$msg);
+    }
+}
+//private私聊挂载点
+addAction('private','关键词回复');
+
+
+function 群关键词回复($robot, $group, $toqq, $msg, $req, $random)
+{
+    if ($msg == "123")
+        API::发送群消息($robot, $group, "666");
+}
+//group群挂载点
+addAction('group', '群关键词回复');
+```
+### 详情可看 [msg](./blob/master/msg/index.php) 的挂载点传递参数
