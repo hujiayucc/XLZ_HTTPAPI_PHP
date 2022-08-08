@@ -979,4 +979,57 @@ class API
         $ret = Lib::POST(取禁言时长, $array);
         return $ret;
     }
+
+    /**
+     * @param int $robot 框架QQ
+     * @param int $group 群号
+     * @param int $seq 消息seq
+     * @param int $allow 操作类型，群事件验证_XXX
+     * @param int $eventtype 事件类型，群事件类型_我被邀请进群_XXX
+     * @param string $reason 拒绝理由
+     * @param bool $isrisk 是否为风险号
+     * @return string 处理结果
+     */
+    public static function 处理群验证事件(int $robot, int $group, int $fromqq, int $seq, int $allow, int $eventtype, string $reason = null, bool $isrisk = false): string
+    {
+        switch ($allow) {
+            case 群事件验证_同意:
+                break;
+            case 群事件验证_拒绝:
+                break;
+            case 群事件验证_忽略:
+                break;
+            default:
+                return "allow参数错误";
+                break;
+        };
+
+        switch ($eventtype) {
+            case 群事件类型_我被邀请进群:
+                break;
+            case 群事件类型_某人申请加群:
+                break;
+            default:
+                return "eventtype参数错误";
+                break;
+        };
+        if($isrisk)
+            $isrisk = "true";
+        else
+            $isrisk = "false";
+
+        $array = [
+            "logonqq"       =>    $robot,
+            "group"         =>    $group,
+            "fromqq"        =>    $fromqq,
+            "seq"           =>    $seq,
+            "optype"        =>    $allow,
+            "eventtype"     =>    $eventtype,
+            "reason"        =>    $reason,
+            "isrisk"        =>    $isrisk
+        ];
+
+        $ret = Lib::POST(处理群验证事件, $array);
+        return $ret;
+    }
 }
