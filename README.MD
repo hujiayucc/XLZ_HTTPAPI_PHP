@@ -56,4 +56,4 @@ function 群关键词回复($robot, $group, $toqq, $msg, $req, $random)
 //group群挂载点
 addAction('group', '群关键词回复');
 ```
-### 详情可看 [msg](./blob/master/msg/index.php) 的挂载点传递参数
+### 详情可看 [msg](./msg/index.php) 的挂载点传递参数
