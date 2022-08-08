@@ -52,6 +52,12 @@ const 事件类型_频道推送数据 = "guildpush";
 const 名片类型_好友 = "Friend";
 const 名片类型_群聊 = "Group";
 
+const 群事件验证_同意 = 11;
+const 群事件验证_拒绝 = 12;
+const 群事件验证_忽略 = 14;
+const 群事件类型_我被邀请进群 = 1;
+const 群事件类型_某人申请加群 = 3;
+
 function getEventType(int $type): string
 {
     $array = [
