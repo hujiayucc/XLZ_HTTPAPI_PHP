@@ -89,10 +89,9 @@ class Text
      */
     public static function getSubstr(string $str, string $leftStr, string $rightStr): string
     {
-        $left = strpos($str, $leftStr);
-        $right = strpos($str, $rightStr, $left);
-        if ($left < 0 or $right < $left) return '';
-        return substr($str, $left + strlen($leftStr), $right - $left - strlen($leftStr));
+        $temp = self::getRightstr($str, $leftStr);
+        $temp = self::getLeftstr($temp, $rightStr);
+        return $temp;
     }
 
     /**
@@ -385,10 +384,10 @@ class 文本代码
 
     public static function 自定义猜拳(int $i): string
     {
-        if($i >= 1 && $i <= 6){
+        if ($i >= 1 && $i <= 6) {
             $code = "[bigFace,Id=11415,name=[猜拳]" . $i . ",hash=83C8A293AE65CA140F348120A77448EE,flag=7de39febcf45e6db]";
             return $code;
-        }else{
+        } else {
             $code = "[bigFace,Id=11415,name=[猜拳],hash=83C8A293AE65CA140F348120A77448EE,flag=7de39febcf45e6db]";
             return $code;
         }
@@ -409,7 +408,7 @@ class 文本代码
         }
     }
 
-    public static function Lottie动画(int $id, string $name):string
+    public static function Lottie动画(int $id, string $name): string
     {
         $code = "[Lottie,Id=" . $id . ",name=" . $name . "]";
         return $code;
@@ -427,7 +426,7 @@ class 文本代码
      */
     public static function 引用子频道(int $id, bool $space = true): string
     {
-        if($space)
+        if ($space)
             return "[#" . $id . "] ";
         else
             return "[#" . $id . "]";
