@@ -10,7 +10,7 @@ require_once("../Lib/init.php");
 function 关键词回复($robot, $toqq, $msg)
 {
     if ($toqq == 2792607647) {
-        API::发送好友消息($robot, $toqq, $msg);
+        //API::发送好友消息($robot, $toqq, $msg);
     }
 }
 //private私聊挂载点
@@ -22,7 +22,7 @@ function 通知主人($robot, $toqq, $msg, $nickname)
     $master = 2792607647;
     //所有私信消息通知主人QQ
     if ($toqq != $master) {
-        $message = $nickname . "(" . $toqq . ") 发送了一条消息\n" . $msg;
+        $message = "收到一条私信\n发送者:" . $toqq . "\n内容:" . $msg . "\n回复#" . $toqq . "#回复内容";
         API::发送好友消息($robot, $master, $message);
     }
 
