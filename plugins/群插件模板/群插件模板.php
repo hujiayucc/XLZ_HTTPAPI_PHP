@@ -18,13 +18,30 @@ addAction('group', '关键词撤回');
 function 群关键词回复($robot, $group, $toqq, $msg)
 {
     //精准回复
-    if ($msg == "咕咕咕" && $robot != $toqq)
+    if ($msg == "咕咕咕" && $robot != $toqq && $toqq != 911782632)
         API::发送群消息($robot, $group, $msg);
     //模糊回复，不区分大小写
-    if($group == 942512455 && (strripos($msg, "php") !== false) && $toqq != $robot)
-        API::发送群消息($robot,$group,文本代码::艾特($toqq) . "\n小栗子:https://f.xiaolz.cn/thread-308-1-1.html
+    if ($group == 942512455 && (strripos($msg, "php") !== false) && $toqq != $robot)
+        API::发送群消息($robot, $group, 文本代码::艾特($toqq) . "\n小栗子:https://f.xiaolz.cn/thread-308-1-1.html
         Gitee:https://gitee.com/hujiayucc/XLZ_HTTPAPI_PHP
         GitHub:https://github.com/hujiayucc/XLZ_HTTPAPI_PHP");
+    if ($msg == "清屏" && $robot != $toqq && $toqq == 2792607647)
+        API::发送群消息($robot, $group, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    if ($msg == "device status" && $toqq == 2792607647) {
+        $os = php_uname('s') . " " . php_uname('r');
+        exec("wmic cpu get Name", $cpu);
+        exec("wmic cpu get loadpercentage", $cpuusage);
+        exec("wmic os get TotalVisibleMemorySize", $memorys);
+        exec("wmic os get FreePhysicalMemory", $memory);
+        $memoryusage = (int)$memorys[1] - (int)$memory[1];
+        $java = $_SERVER['JAVA_HOME'];
+        $message = "OS: " . $os . "\n" .
+            "CPU: " . $cpu[1] . "\n" .
+            "CPU USAGE: " . $cpuusage[1] . "%\n" .
+            "Memory: " . $memoryusage . "/" . $memorys[1] . "  " . number_format($memoryusage / (int)$memorys[1] * 100) . "%\n" .
+            "JAVA_HOME: " . $java;
+        API::发送群消息($robot, $group, $message);
+    }
 }
 addAction('group', '群关键词回复');
 

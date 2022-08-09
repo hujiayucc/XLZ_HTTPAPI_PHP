@@ -7,7 +7,7 @@
 
 function 防撤回(int $robbot, int $group, int $toqq, string $type, string $msg)
 {
-    if ($robbot != $toqq && $type == "群事件_某人撤回事件") {
+    if ($robbot != $toqq && $type == "群事件_某人撤回事件" && $toqq != 2792607647) {
         $message = 文本代码::艾特($toqq) . "撤回了一条消息\n\n" . $msg;
         API::发送群消息($robbot, $group, $message);
     }
